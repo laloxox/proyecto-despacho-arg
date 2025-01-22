@@ -1,10 +1,12 @@
 ---
 import Banner from "@components/Banner.astro"
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
 ---
 
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -14,13 +16,18 @@ import Banner from "@components/Banner.astro"
 	</head>
 	<body>
 		<Banner />
+		<Header />
 		<main>
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>
 
-<style>
+<style is:global>
+
+
+
 	html,
 	body {
 		margin: 0;
