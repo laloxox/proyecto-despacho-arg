@@ -4,9 +4,9 @@
     <!-- Container -->
     <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32 sm:text-center sm:place-items-center md:place-items-center md:text-center lg:text-left xl:text-left ">
         <!-- Component -->
-        <div class="grid grid-cols-1 gap-8 sm:gap-20 lg:grid-cols-2">
+        <div class="mt-5 grid grid-cols-1 gap-8 sm:gap-20 lg:grid-cols-2">
         <!-- Heading Content -->
-        <div class="max-w-[720px]">
+        <div class="max-w-[720px] animate-reveal [animation-delay:0.3s]">
             <h1 class="mb-3 pb-4 text-4xl font-bold text-[#71CF48] sm:text-5xl md:text-6xl">Despacho Contable y Asesoria Fiscal</h1>
             <div class="inline-block md:justify-center xl:justify-start xl:text-justify xl:mx-auto">
                 <p class="mb-6 leading-relaxed md:mx-auto max-w-[528px] text-gray-800 dark:text-gray-200 text-xl md:mb-10 ">Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -24,12 +24,32 @@
             </div>
         </div>
         <!-- Image Div -->
-        <div>
+        <div class="reveal-container opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out">
             <img src="/img-footer.jpg" alt="" class="mx-auto inline-block h-full w-full max-w-[640px] rounded-2xl object-cover shadow-lg" />
         </div>
     </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const revealContainers = document.querySelectorAll('.reveal-container');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+            }, {
+                threshold: 0.1
+            });
+            revealContainers.forEach(container => {
+                observer.observe(container);
+            })
+        });
+</script>
 
 
 

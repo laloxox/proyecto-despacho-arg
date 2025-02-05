@@ -12,11 +12,19 @@
 </button>
 
 <script>
-    const darkModeInput = document.querySelector('#darkmode');
+    const toggleButton = document.getElementById('darkmode');
+    const body = document.body;
 
-    darkModeInput.addEventListener('click', ()=>{
-        document.documentElement.classList.toggle('dark');
-    })
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark');
+    });
+
+
+    //const darkModeInput = document.querySelector('#darkmode');
+
+    //darkModeInput.addEventListener('click', () => {
+        //document.documentElement.classList.toggle('dark');
+    //})
 
 </script>
 </div>

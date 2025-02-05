@@ -11,7 +11,7 @@
         </div>
         <div class="grid max-w-6xl sm:max-w-[390px] grid-cols-1 md:max-w-4xl md:gap-5 lg:max-w-5xl xl:max-w-6xl lg:gap-5 gap-6 mx-auto mt-10 text-center sm:mt-16 sm:gap-x-12 gap-y-4 md:grid-cols-3 xl:mt-24 xl:gap-6">
         <!-- Feature 1 -->
-        <div class="gradient-border dark:bg-gray-700 md:p-8 lg:p-14 hover:bg-gray-50 rounded-xl shadow-xl p-6 flex flex-col justify-center items-center">
+        <div class="gradient-border dark:bg-gray-700 md:p-8 lg:p-14 hover:bg-gray-50 rounded-xl shadow-xl p-6 flex flex-col justify-center items-center fade-in opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out">
             <div class="w-14 h-14 rounded-full bg-[#71CF48] flex justify-center items-center">
             <i class="fa-solid fa-chart-column text-3xl text-gray-900"></i>
             </div>
@@ -21,7 +21,7 @@
         </div>
 
         <!-- Feature 2 -->
-        <div class="dark:bg-gray-700 md:p-8 lg:p-14 hover:bg-gray-50 rounded-xl shadow-xl p-6 md:border-l md:border-gray-200 flex flex-col justify-center items-center">
+        <div class="dark:bg-gray-700 md:p-8 lg:p-14 hover:bg-gray-50 rounded-xl shadow-xl p-6 md:border-l md:border-gray-200 flex flex-col justify-center items-center fade-in opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out">
             <div class="w-14 h-14 rounded-full bg-[#71CF48] flex justify-center items-center">
             <i class="fa-solid fa-truck-fast text-3xl text-gray-900"></i>
             </div>
@@ -31,7 +31,7 @@
         </div>
 
         <!-- Feature 3 -->
-        <div class="dark:bg-gray-700 dark:shadow-xl md:p-8 lg:p-14 hover:bg-gray-50 rounded-xl shadow-xl p-6 md:border-l md:border-gray-200 flex flex-col justify-center items-center">
+        <div class="dark:bg-gray-700 dark:shadow-xl md:p-8 lg:p-14 hover:bg-gray-50 rounded-xl shadow-xl p-6 md:border-l md:border-gray-200 flex flex-col justify-center items-center fade-in opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out">
             <div class="w-14 h-14 rounded-full bg-[#71CF48] flex justify-center items-center">
             <i class="fa-solid fa-shield text-3xl text-gray-900"></i>
             </div>
@@ -42,6 +42,28 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const revealContainers = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+            }, {
+                threshold: 0.1
+            });
+            revealContainers.forEach(container => {
+                observer.observe(container);
+            });
+        });
+</script>
+
+
 
 <style>
 @tailwind base;
