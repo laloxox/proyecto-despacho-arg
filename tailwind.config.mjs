@@ -11,6 +11,8 @@ export default {
 				'reveal': 'reveal 1.5s cubic-bezier(0.2, 1, 0.3, 1)',
 				'slide': 'slide 1s cubic-bezier(0.2, 1, 0.3, 1)',
 				'scale': 'scale 1s cubic-bezier(0.2, 1, 0.3, 1)',
+
+				slide: "slide 2.8s linear infinite",
 			},
 			keyframes: {
 				morph: {
@@ -36,7 +38,14 @@ export default {
 				scale: {
 					'0%': { transform: 'scale(0.95)', opacity: 0 },
 					'100%': { transform: 'scale(1)', opacity: 1 }
-				}
+				},
+				slide: {
+					"0%": { transform: "translateY(100%)", opacity: 0.1 },
+					"15%": { transform: "translateY(0)", opacity: 1 },
+					"30%": { transform: "translateY(0)", opacity: 1 },
+					"45%": { transform: "translateY(-100%)", opacity: 1 },
+					"100%": { transform: "translateY(-100%)", opacity: 0.1 },
+				},
 			}
 		},
 	},
